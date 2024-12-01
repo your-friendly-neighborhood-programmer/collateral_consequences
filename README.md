@@ -10,9 +10,14 @@
   <p>It's also important to note that: "The impact of these "collateral consequences" is often discussed in the context of re-entry, but they attach not only to felonies and incarcerated individuals but also to misdemeanors and individuals who have never been incarcerated. Collateral consequences tend to last indefinitely, long after an individual is fully rehabilitated... Relevant laws and regulations in the U.S. are notoriously difficult to track down and understand. As a result, attorneys and judges are not familiar with all of the collateral consequences triggered by certain crimes. They may not have the time or ability to find them and then determine whether they are applicable to a defendant.  Consequently, the people involved in criminal proceedings may not realize the full ramifications of being found guilty or pleading guilty to particular charges." (Berson, 2013)</p>
     <h2>Just How Many Collateral Consequences of Conviction Are There?</h2>
     <p>To answer this question, I exported data from the National Inventory of Collateral Consequences of Conviction.  I obtained data for all 50 states, Washington, D.C., and federally enacted collateral consequences.  The sum of the "Number.of.Consequences" for all combined jurisdictions analyzed is 41,965.  These represent 41,965 laws and regulations that impact individual rights and place supreme hardship on the justice impacted, often indefinitely, long after a sentence has been served.</p>
-    <h2>Total Number of Collateral Consequences of Conviction by Jurisdiction (State, Federal, & D.C.)</h2>
+    <h3>Total Number of Collateral Consequences of Conviction by Jurisdiction (State, Federal, & D.C.)</h3>
     <img src = "./collateral_consequences/total_consequences_per_jurisdiction.jpeg">
-    <h2>Breakdown of Collateral Consequences of Conviction (Combined Jurisdictions)</h2>
+    <h2>What Kinds of Effects Do Collateral Consequences Have for the Justice Impacted?</h2>
+    <h3>Breakdown of Number of Collateral Consequences by Category of Effect</h3>
+    <img src = "./collateral_consequences/count_by_effect.jpeg">
+    <h2>How Long Do Collateral Consequences of Conviction Impact an Individual?</h2>
+    <p>Most collateral consequences can affect an individual indefinitely, making it difficult to overcome barriers for a lifetime. This analysis revealed that 63% of all collateral consequences of conviction in the U.S. can affect individuals indefinitely, 14% vary, only 11% are time-limited, 11% are categorized as "NA (background check, general relief), and 1% are conditional.</p>
+    <h3>Breakdown of Duration of Collateral Consequences of Conviction (Combined Jurisdictions)</h3>
     <img src = "./collateral_consequences/breakdown_consequence_duration.jpeg">
     <h3>References:</h3>
     <p>American Bar Association. (2018). Collateral Consequences of Criminal Convictions: Judicial Bench Book. Office of Justice Programs' National Criminal Justice Reference Service. <a href = www.ojp.gov/pdffiles1/nij/grants/251583.pdf>www.ojp.gov/pdffiles1/nij/grants/251583.pdf</a></p>

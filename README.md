@@ -13,6 +13,8 @@
     <h3>Total Number of Collateral Consequences of Conviction by Jurisdiction (State, Federal, & D.C.)</h3>
     <img src = "./collateral_consequences/total_consequences_per_jurisdiction.jpeg">
     <h2>What Kinds of Effects Do Collateral Consequences Have for the Justice Impacted?</h2>
+    <p>This analysis revealed that of all collateral consequences of conviction, 50% of them affect employment & volunteering opportunities, 36% affect Occupational & professional licensure & certification opportunities, 29% affect business licensure & participation opportunities, 9% affect political & civic participation opportunities, 6% involve registration, publication & notification, 5% affect non-commercial motor vehicle licensure, 4% affect family & domestic rights, 4% affect government contracting & program participation, 4% affect recreational licenses & participation, including firearms, 3% affect Educational opportunities, 3% affect housing & residency opportunities, 2-3% affect government benefits eligibility, and less than 1% affect government loans and grants eligibility, and less than 1% affect immigration, naturalization, & travel.</p>
+<p>While one may be tempted to think categories with lower percentages of all collateral consequences have smaller effects on individuals and society, it's important to understand the context of each specific statute and regulation regarding the effects, including the duration of time an individual is subject to these collateral consequences.</p>
     <h3>Breakdown of Number of Collateral Consequences by Category of Effect</h3>
     <img src = "./collateral_consequences/count_by_effect.jpeg">
     <h2>How Long Do Collateral Consequences of Conviction Impact an Individual?</h2>

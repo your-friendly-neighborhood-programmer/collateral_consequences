@@ -180,4 +180,15 @@ grouped_consequences %>% ggplot(aes(x = reorder(Consequences, count), y = count)
 grouped_consequences_percent <- data.frame(grouped_consequences) %>% mutate(percent = count/clean_total_consequences * 100)
 grouped_consequences_percent %>% arrange(desc(percent))
 
+# Broken down by offense type
+split_offense <- all_states %>% mutate(numeric_count = num_con) %>% separate_rows(Offense.Type, sep = "\\|") %>%
+  group_by(Offense.Type) %>% summarize(count = sum(numeric_count, na.rm=TRUE))
+filtered_split_offense <- data.frame(split_offense) %>% filter(Offense.Type != "" & count > 1)
+offense_with_percent <- data.frame(filtered_split_offense) %>% mutate(percent = round(count/clean_total_consequences *100))
+arranged_offense <- offense_with_percent %>% arrange(desc(percent))
+arranged_offense %>% ggplot(aes(x = reorder(Offense.Type, percent), y = percent)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  labs(title = "Percent of All Collateral Consequences That Apply to Those Convicted of Each Offense Type", x = "Offense Type", y = "Percent of All Collateral Consequences That Apply")
+
 

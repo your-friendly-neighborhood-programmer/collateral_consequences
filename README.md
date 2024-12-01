@@ -21,7 +21,7 @@
     <p>Most collateral consequences can affect an individual indefinitely, making it difficult to overcome barriers for a lifetime. This analysis revealed that 63% of all collateral consequences of conviction in the U.S. can affect individuals indefinitely, 14% vary, only 11% are time-limited, 11% are categorized as "NA (background check, general relief)", and 1% are conditional.</p>
     <p>Below is a visualization that breaks down the perfentage of all collateral consequences by length of time an individual can be subject to the consequence.</p>
     <img src = "./collateral_consequences/breakdown_consequence_duration.jpeg">
-    <h2>What Type of Offenses Cause an Individual to Be Subject to Collateral Consequences of Conviction?</h2>
+    <h2>What Types of Offenses Cause an Individual to Be Subject to Collateral Consequences of Conviction?</h2>
     <p>It's not only those with felony convictions, or those who have served prison sentences that are subject to collateral consequences of convictions.  Those with misdemeanor convictions, and even those who were never sentenced to jail or probation can face these effects.  Below is a visualization of the percent of all collateral consequences that apply to individuals convicted by offense type.</p>
     <img src = "./collateral_consequences/offense_type_breakdown.jpeg">
     <h3>References:</h3>

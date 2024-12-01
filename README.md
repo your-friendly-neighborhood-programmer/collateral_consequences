@@ -22,8 +22,8 @@
     <p>Below is a visualization that breaks down the perfentage of all collateral consequences by length of time an individual can be subject to the consequence.</p>
     <img src = "./collateral_consequences/breakdown_consequence_duration.jpeg">
     <h2>What Type of Offenses Cause an Individual to Be Subject to Collateral Consequences of Conviction?</h2>
-    <p>It's not only those with felony convictions, or those who have served prison sentences that are subject to collateral consequences of convictions.  Those with misdemeanor convictions, and even those who were never sentenced to jail or probation can face these effects.  Below is a visualization of the number of collateral consequences that affect individuals convicted of each type of offense.</p>
-    <img>
+    <p>It's not only those with felony convictions, or those who have served prison sentences that are subject to collateral consequences of convictions.  Those with misdemeanor convictions, and even those who were never sentenced to jail or probation can face these effects.  Below is a visualization of the percent of all collateral consequences that apply to individuals convicted by offense type.</p>
+    <img src = "./collateral_consequences/offense_type_breakdown.jpeg">
     <h3>References:</h3>
     <p>American Bar Association. (2018). Collateral Consequences of Criminal Convictions: Judicial Bench Book. Office of Justice Programs' National Criminal Justice Reference Service. <a href = www.ojp.gov/pdffiles1/nij/grants/251583.pdf>www.ojp.gov/pdffiles1/nij/grants/251583.pdf</a></p>
     <p>Berson, Sarah. (2013). Beyond the Sentence - Understanding Collateral Consequences. National Institute of Justice Journal, no. 272, Sept. 2013, pp. 24–29. <a href = https://doi.org/https://nij.ojp.gov/nij-journal/nij-journal-issue-272>https://doi.org/https://nij.ojp.gov/nij-journal/nij-journal-issue-272</a></p>

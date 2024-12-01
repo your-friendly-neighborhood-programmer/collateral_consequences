@@ -16,7 +16,7 @@
     <h3>Breakdown of Number of Collateral Consequences by Category of Effect</h3>
     <img src = "./collateral_consequences/count_by_effect.jpeg">
     <h2>How Long Do Collateral Consequences of Conviction Impact an Individual?</h2>
-    <p>Most collateral consequences can affect an individual indefinitely, making it difficult to overcome barriers for a lifetime. This analysis revealed that 63% of all collateral consequences of conviction in the U.S. can affect individuals indefinitely, 14% vary, only 11% are time-limited, 11% are categorized as "NA (background check, general relief), and 1% are conditional.</p>
+    <p>Most collateral consequences can affect an individual indefinitely, making it difficult to overcome barriers for a lifetime. This analysis revealed that 63% of all collateral consequences of conviction in the U.S. can affect individuals indefinitely, 14% vary, only 11% are time-limited, 11% are categorized as "NA (background check, general relief)", and 1% are conditional.</p>
     <h3>Breakdown of Duration of Collateral Consequences of Conviction (Combined Jurisdictions)</h3>
     <img src = "./collateral_consequences/breakdown_consequence_duration.jpeg">
     <h3>References:</h3>

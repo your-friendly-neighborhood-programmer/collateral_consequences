@@ -124,6 +124,9 @@ all_states <- rbind(alabama, alaska, arizona, arkansas, california,
     tennessee, texas, utah, vermont, virginia, washington, westvirginia, 
     wisconsin, wyoming)
 
+# Sum of entries analyzed, total collateral consequences
+total <- nrow(all_states)
+
 # Count number of collateral consequences per jurisdiction/state
 n_consequences <- data.frame(all_states %>% group_by(state) %>% summarise(count = n()))
 

@@ -154,11 +154,30 @@ pie(combined_duration$count, main = "Breakdown of Duration of Collateral Consequ
     col = colors, label = paste(combined_duration$Duration, combined_duration$percent, "%"))
 
 
+# Create bar chart of the breakdown of collateral consequences by category of effect
+split_consequences <- all_states %>% mutate(numeric_count = num_con) %>% separate_rows(Consequences, sep = "\\|")
+consequences_categories <- c("Business licensure & participation", "Civil fines, 
+                             liability, civil forfeiture & property rights",
+                             "Education", "Employment & volunteering", 
+                             "Family & domestic rights", "General relief provision",
+                             "Government benefits", "Government contracting & program participation",
+                             "Government loans & grants", "Housing & residency", 
+                             "Immigration, naturalization & travel", "Judicial rights",
+                             "Motor vehicle licensure (non-commercial)", 
+                             "Occupational & professional licensure & certification",
+                             "Political & civic participation",
+                             "Recreational license & participation, including firearms",
+                             "Registration, publication & notification")
+filtered_consequences <- split_consequences %>% filter(Consequences %in% consequences_categories)
+grouped_consequences <- filtered_consequences %>% group_by(Consequences) %>%
+  summarise(count = sum(numeric_count, na.rm=TRUE))                         
+grouped_consequences %>% ggplot(aes(x = reorder(Consequences, count), y = count)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  labs(title = "Number of Collateral Consequences By Category of Effect", x = "Category of Effect", y = "Number of Collateral Consequences")
 
-
-
-
-
-
+# Percent of all collateral consequences by category of effect
+grouped_consequences_percent <- data.frame(grouped_consequences) %>% mutate(percent = count/clean_total_consequences * 100)
+grouped_consequences_percent %>% arrange(desc(percent))
 
 

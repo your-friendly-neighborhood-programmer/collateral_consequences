@@ -130,7 +130,8 @@ num_con <- as.integer(no_con)
 clean_total_consequences <- sum(num_con, na.rm = TRUE)
 
 # Count number of collateral consequences per jurisdiction/state
-n_consequences <- data.frame(all_states %>% group_by(state) %>% summarise(count = n()))
+n_consequences <- all_states %>% mutate(numeric_count = num_con) %>%
+  group_by(state) %>% summarise(count = sum(numeric_count, na.rm = TRUE))
 
 # Create bar chart of total number of collateral consequences in each jurisdiction
 n_consequences %>% ggplot(aes(x = reorder(state, count), y = count)) +

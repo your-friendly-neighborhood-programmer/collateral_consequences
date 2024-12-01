@@ -135,3 +135,12 @@ n_consequences %>% ggplot(aes(x = reorder(state, -count), y = count)) +
          x = "State",
          y = "Number of Collateral Consequences") +
          theme_minimal()
+
+
+
+
+
+
+
+
+

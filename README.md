@@ -13,7 +13,7 @@
     <h2>Total Number of Collateral Consequences of Conviction by Jurisdiction (State, Federal, & D.C.)</h2>
     <img src = "./collateral_consequences/total_consequences_per_jurisdiction.jpeg">
     <h2>Breakdown of Collateral Consequences of Conviction (Combined Jurisdictions)</h2>
-    <img src = "./collateral_consequences/breakdown_duration.jpeg">
+    <img src = "./collateral_consequences/breakdown_consequence_duration.jpeg">
     <h3>References:</h3>
     <p>American Bar Association. (2018). Collateral Consequences of Criminal Convictions: Judicial Bench Book. Office of Justice Programs' National Criminal Justice Reference Service. <a href = www.ojp.gov/pdffiles1/nij/grants/251583.pdf>www.ojp.gov/pdffiles1/nij/grants/251583.pdf</a></p>
     <p>Berson, Sarah. (2013). Beyond the Sentence - Understanding Collateral Consequences. National Institute of Justice Journal, no. 272, Sept. 2013, pp. 24–29. <a href = https://doi.org/https://nij.ojp.gov/nij-journal/nij-journal-issue-272>https://doi.org/https://nij.ojp.gov/nij-journal/nij-journal-issue-272</a></p>

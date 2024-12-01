@@ -1,5 +1,7 @@
 library(dplyr)
 library(ggplot2)
+library(httpgd)
+hgd()
 
 # Read csv files
 alabama <- read.csv("alabama.csv")
@@ -120,5 +122,10 @@ all_states <- rbind(alabama, alaska, arizona, arkansas, california,
     tennessee, texas, utah, vermont, virginia, washington, westvirginia, 
     wisconsin, wyoming)
 
-# create bar chart to compare counts of collateral consequences by state
+# Count number of collateral consequences per jurisdiction/state
+n_consequences <- data.frame(all_states %>% group_by(state) %>% summarise(count = n()))
+
+# Create bar chart
+n_consequences %>% ggplot(aes(x = count, y = state)) +
+    geom_bar(stat = "identity")
 

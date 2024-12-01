@@ -12,8 +12,8 @@
     <p>To answer this question, I exported data from the National Inventory of Collateral Consequences of Conviction.  I obtained data for all 50 states, Washington, D.C., and federally enacted collateral consequences.  The sum of the "Number.of.Consequences" for all combined jurisdictions analyzed is 41,965.  These represent 41,965 laws and regulations that impact individual rights and place supreme hardship on the justice impacted, often indefinitely, long after a sentence has been served.</p>
     <h2>Total Number of Collateral Consequences of Conviction by Jurisdiction (State, Federal, & D.C.)</h2>
     <img src = "./collateral_consequences/total_consequences_per_jurisdiction.jpeg">
-    <h2>Breakdown of Time-Duration of Collateral Consequences of Conviction (Combined Jurisdictions)</h2>
-    <img src = "./collateral_consequences/time_duration.jpeg">
+    <h2>Breakdown of Collateral Consequences of Conviction (Combined Jurisdictions)</h2>
+    <img src = "./collateral_consequences/breakdown_duration.jpeg">
     <h3>References:</h3>
     <p>American Bar Association. (2018). Collateral Consequences of Criminal Convictions: Judicial Bench Book. Office of Justice Programs' National Criminal Justice Reference Service. <a href = www.ojp.gov/pdffiles1/nij/grants/251583.pdf>www.ojp.gov/pdffiles1/nij/grants/251583.pdf</a></p>
     <p>Berson, Sarah. (2013). Beyond the Sentence - Understanding Collateral Consequences. National Institute of Justice Journal, no. 272, Sept. 2013, pp. 24–29. <a href = https://doi.org/https://nij.ojp.gov/nij-journal/nij-journal-issue-272>https://doi.org/https://nij.ojp.gov/nij-journal/nij-journal-issue-272</a></p>

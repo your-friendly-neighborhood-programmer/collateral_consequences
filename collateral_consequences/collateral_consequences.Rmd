@@ -1,6 +1,0 @@
----
-title: "Collateral Consequences Visualization"
-output: pdf_document
----
-
-

@@ -11,7 +11,7 @@
     <h2>Just How Many Collateral Consequences of Conviction Are There?</h2>
     <p>To answer this question, I exported data from the National Inventory of Collateral Consequences of Conviction.  I obtained data for all 50 states, Washington, D.C., and federally enacted collateral consequences.  The sum of the "Number.of.Consequences" for all combined jurisdictions analyzed is 41,965.  These represent 41,965 laws and regulations that impact individual rights and place supreme hardship on the justice impacted, often indefinitely, long after a sentence has been served.</p>
     <h2>Total Number of Collateral Consequences of Conviction by Jurisdiction (State, Federal, & D.C.)</h2>
-    <img src = "./collateral_consequences/total_counts_by_jurisdiction.jpeg">
+    <img src = "./collateral_consequences/total_consequences_per_jurisdiction.jpeg">
     <h2>Breakdown of Time-Duration of Collateral Consequences of Conviction (Combined Jurisdictions)</h2>
     <img src = "./collateral_consequences/time_duration.jpeg">
     <h3>References:</h3>

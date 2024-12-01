@@ -143,13 +143,14 @@ n_consequences %>% ggplot(aes(x = reorder(state, count), y = count)) +
          theme_minimal()
 
 # Create pie chart of the breakdown of time duration of collateral consequences
-comb_duration <- all_states %>% group_by(Duration) %>%
-  summarise(count = n())
+split_duration <- all_states %>% mutate(numeric_count = num_con) %>% separate_rows(Duration, sep = "\\|")
+comb_duration <- split_duration %>% group_by(Duration) %>%
+  summarise(count = sum(numeric_count, na.rm=TRUE))
 combined_duration <- data.frame(comb_duration)
-combined_duration <- combined_duration %>% mutate(percent = round(count/sum(count) * 100))
-combined_duration <- combined_duration %>% filter(percent >= 1 & Duration != "")
+combined_duration <- combined_duration %>% mutate(percent = round(count/clean_total_consequences * 100))
+combined_duration <- combined_duration %>% filter(percent != 0)
 colors <- c("blue", "red", "orange", "yellow", "green")
-pie(combined_duration$count, main = "Breakdown of Time-Duration of Collateral Consequences of Conviction", 
+pie(combined_duration$count, main = "Breakdown of Duration of Collateral Consequences of Conviction", 
     col = colors, label = paste(combined_duration$Duration, combined_duration$percent, "%"))
 
 

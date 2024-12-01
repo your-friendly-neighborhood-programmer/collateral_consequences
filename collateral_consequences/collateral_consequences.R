@@ -127,7 +127,7 @@ all_states <- rbind(alabama, alaska, arizona, arkansas, california,
 # Count number of collateral consequences per jurisdiction/state
 n_consequences <- data.frame(all_states %>% group_by(state) %>% summarise(count = n()))
 
-# Create bar chart
+# Create bar chart of total number of collateral consequences in each jurisdiction
 n_consequences %>% ggplot(aes(x = reorder(state, count), y = count)) +
     geom_bar(stat = "identity") +
     coord_flip() +
@@ -135,6 +135,16 @@ n_consequences %>% ggplot(aes(x = reorder(state, count), y = count)) +
          x = "Jurisdiction",
          y = "Number of Collateral Consequences") +
          theme_minimal()
+
+# Create pie chart of the breakdown of time duration of collateral consequences
+comb_duration <- all_states %>% group_by(Duration) %>%
+  summarise(count = n())
+combined_duration <- data.frame(comb_duration)
+combined_duration <- combined_duration %>% mutate(percent = round(count/sum(count) * 100))
+combined_duration <- combined_duration %>% filter(percent >= 1 & Duration != "")
+colors <- c("blue", "red", "orange", "yellow", "green")
+pie(combined_duration$count, main = "Breakdown of Time-Duration of Collateral Consequences of Conviction", 
+    col = colors, label = paste(combined_duration$Duration, combined_duration$percent, "%"))
 
 
 

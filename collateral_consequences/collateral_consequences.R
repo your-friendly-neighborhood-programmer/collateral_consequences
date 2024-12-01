@@ -128,13 +128,14 @@ all_states <- rbind(alabama, alaska, arizona, arkansas, california,
 n_consequences <- data.frame(all_states %>% group_by(state) %>% summarise(count = n()))
 
 # Create bar chart
-n_consequences %>% ggplot(aes(x = reorder(state, -count), y = count)) +
+n_consequences %>% ggplot(aes(x = reorder(state, count), y = count)) +
     geom_bar(stat = "identity") +
     coord_flip() +
-    labs(title = "Number of Collateral Consequences Per State",
-         x = "State",
+    labs(title = "Total Number of Collateral Consequences Per Jurisdiction",
+         x = "Jurisdiction",
          y = "Number of Collateral Consequences") +
          theme_minimal()
+
 
 
 

@@ -2,7 +2,7 @@
 <html>
   <head></head>
   <body>
-    <h1>Collateral Consequences of Conviction</h1>
+    <h1><a href = "">Collateral Consequences of Conviction</a></h1>
     <h4>Victoria Mitchell, 12/01/2024</h4>
     <h2>Analysis & Visualization of Data Exported From the National Inventory of Collateral Consequences of Conviction</h2>
     <h2>What Are Collateral Consequences of Conviction?</h2>

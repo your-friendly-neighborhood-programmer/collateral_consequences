@@ -31,3 +31,7 @@ img {
 div p {
     text-indent: -1em;
 }
+footer p {
+    text-align: center;
+    text-indent: 0;
+}

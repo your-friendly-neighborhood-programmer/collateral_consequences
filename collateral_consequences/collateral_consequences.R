@@ -162,15 +162,12 @@ category_consequence <- n_each_category %>%
     labs(y = "Type of Effect", x = "Number of Collateral Consequences", caption = "Visualization by Victoria Mitchell. Data Source: National Inventory of Collateral Consequences of Conviction") +
     ggtitle("Number of Collateral Consequences by Type of Effect") +
     theme(legend.position = "none", 
-    plot.title = element_text(size = 28, hjust = -2),
-    plot.caption = element_text(size = 12, hjust = -1),
+    plot.title = element_text(size = 28, hjust = -.5),
+    plot.caption = element_text(size = 12, hjust = -.3),
     axis.title = element_text(size = 22),
     axis.text = element_text(size = 16),
     plot.background = element_rect(fill = "lightblue", color = NA),
     panel.background = element_rect(fill = "lightblue", color = NA))
-
-
-
 
 # Save the plot
 ggsave("./collateral_consequences/plots/collateral_consequences_by_category.png", plot = category_consequence, width = 18, height = 12)
@@ -194,8 +191,8 @@ duration_pie <- duration %>%
     scale_fill_brewer(palette = "Set1") +
     theme(legend.position = "left", legend.text = element_text(size = 20), 
     legend.title = element_text(size = 20), 
-    plot.title = element_text(size = 20, hjust = -2), 
-    plot.caption = element_text(size = 12, hjust = 1.5), 
+    plot.title = element_text(size = 22, hjust = -1), 
+    plot.caption = element_text(size = 12, hjust = 3), 
     plot.background = element_rect(fill = "lightblue", color = NA), 
     panel.background = element_rect(fill = "lightblue", color = NA)) +
     guides(fill = guide_legend(override.aes = list(label = "")))
@@ -219,8 +216,8 @@ offenses <- offense %>%
     labs(y = "Offense Type", x = "Number of Collateral Consequences", caption = "Visualization by Victoria Mitchell. Data Source: National Inventory of Collateral Consequences of Conviction") +
     ggtitle("Number of Collateral Consequences by Offense Type") +
     theme(legend.position = "none", 
-    plot.title = element_text(size = 28, hjust = 4),
-    plot.caption = element_text(size = 14, hjust = 3.2),
+    plot.title = element_text(size = 28, hjust = -4),
+    plot.caption = element_text(size = 14, hjust = -4),
     axis.title = element_text(size = 22),
     axis.text = element_text(size = 16),
     plot.background = element_rect(fill = "lightblue", color = NA),

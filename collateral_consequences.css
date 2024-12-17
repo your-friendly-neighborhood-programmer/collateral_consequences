@@ -8,6 +8,7 @@ h1, h2, h3 {
 header {
     background-image: url("./justiceheader.png");
     height: 330px;
+    font-family: "Patua One", serif;
 }
 header > h1, h2, h3 {
     padding: 28px;
@@ -27,6 +28,8 @@ img {
     width: 80%;
     height: 80%;
     margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 4px;
 }
 div p {
     text-indent: -1em;

@@ -1,0 +1,33 @@
+html {
+    background-color: #FFEBCD;
+}
+h1, h2, h3 {
+    text-align: center;
+    margin-top: 0px;
+}
+header {
+    background-image: url("./justiceheader.png");
+    height: 330px;
+}
+header > h1, h2, h3 {
+    padding: 28px;
+    margin: auto;
+}
+p {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-indent: 50px;
+    line-height: 1.5;
+    margin-top: 0px;
+}
+img {
+    display: block;
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+}
+div p {
+    text-indent: -1em;
+}

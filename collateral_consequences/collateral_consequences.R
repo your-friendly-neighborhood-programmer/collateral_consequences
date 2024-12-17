@@ -1,194 +1,231 @@
 library(dplyr)
+library(tidyr)
 library(ggplot2)
-library(httpgd)
-library(knitr)
-library(pandoc)
+
+# Read in the data for each state (I had to export one by one)
+alabama  <- read.csv("./collateral_consequences/docs/alabama.csv") %>% 
+    mutate(state = "Alabama")
+alaska  <- read.csv("./collateral_consequences/docs/alaska.csv") %>% 
+    mutate(state = "Alaska")
+arizona  <- read.csv("./collateral_consequences/docs/arizona.csv") %>% 
+    mutate(state = "Arizona")
+arkansas  <- read.csv("./collateral_consequences/docs/arkansas.csv") %>% 
+    mutate(state = "Arkansas")
+california  <- read.csv("./collateral_consequences/docs/california.csv") %>% 
+    mutate(state = "California")
+colorado  <- read.csv("./collateral_consequences/docs/colorado.csv") %>% 
+    mutate(state = "Colorado")
+connecticut  <- read.csv("./collateral_consequences/docs/connecticut.csv") %>%
+    mutate(state = "Connecticut")
+dc <- read.csv("./collateral_consequences/docs/dc.csv") %>%
+    mutate(state = "DC")
+delaware  <- read.csv("./collateral_consequences/docs/delaware.csv") %>%
+    mutate(state = "Delaware")
+federal <- read.csv("./collateral_consequences/docs/federal.csv") %>%
+    mutate(state = "Federal")
+florida  <- read.csv("./collateral_consequences/docs/florida.csv") %>%
+    mutate(state = "Florida")
+georgia  <- read.csv("./collateral_consequences/docs/georgia.csv") %>%  
+    mutate(state = "Georgia")
+hawaii  <- read.csv("./collateral_consequences/docs/hawaii.csv") %>%
+    mutate(state = "Hawaii")
+idaho  <- read.csv("./collateral_consequences/docs/idaho.csv") %>%
+    mutate(state = "Idaho")
+illinois  <- read.csv("./collateral_consequences/docs/illinois.csv") %>%
+    mutate(state = "Illinois")
+indiana  <- read.csv("./collateral_consequences/docs/indiana.csv") %>%
+    mutate(state = "Indiana")
+iowa  <- read.csv("./collateral_consequences/docs/iowa.csv") %>%
+    mutate(state = "Iowa")
+kansas  <- read.csv("./collateral_consequences/docs/kansas.csv") %>%
+    mutate(state = "Kansas")
+kentucky  <- read.csv("./collateral_consequences/docs/kentucky.csv") %>%
+    mutate(state = "Kentucky")
+louisiana  <- read.csv("./collateral_consequences/docs/louisiana.csv") %>%
+    mutate(state = "Louisiana")
+maine  <- read.csv("./collateral_consequences/docs/maine.csv") %>%
+    mutate(state = "Maine")
+maryland  <- read.csv("./collateral_consequences/docs/maryland.csv") %>%
+    mutate(state = "Maryland")
+massachusetts  <- read.csv("./collateral_consequences/docs/massachusetts.csv") %>%
+    mutate(state = "Massachusetts")
+michigan  <- read.csv("./collateral_consequences/docs/michigan.csv") %>%
+    mutate(state = "Michigan")
+minnesota  <- read.csv("./collateral_consequences/docs/minnesota.csv") %>%
+    mutate(state = "Minnesota")
+mississippi  <- read.csv("./collateral_consequences/docs/mississippi.csv") %>%
+    mutate(state = "Mississippi")
+missouri  <- read.csv("./collateral_consequences/docs/missouri.csv") %>%
+    mutate(state = "Missouri")
+montana  <- read.csv("./collateral_consequences/docs/montana.csv") %>%
+    mutate(state = "Montana")
+nebraska  <- read.csv("./collateral_consequences/docs/nebraska.csv") %>%
+    mutate(state = "Nebraska")
+nevada  <- read.csv("./collateral_consequences/docs/nevada.csv") %>%
+    mutate(state = "Nevada")
+new_hampshire  <- read.csv("./collateral_consequences/docs/newhampshire.csv") %>%
+    mutate(state = "New Hampshire")
+new_jersey  <- read.csv("./collateral_consequences/docs/newjersey.csv") %>%
+    mutate(state = "New Jersey")
+new_mexico  <- read.csv("./collateral_consequences/docs/newmexico.csv") %>%
+    mutate(state = "New Mexico")
+new_york  <- read.csv("./collateral_consequences/docs/newyork.csv") %>%
+    mutate(state = "New York")
+north_carolina  <- read.csv("./collateral_consequences/docs/northcarolina.csv") %>%
+    mutate(state = "North Carolina")
+north_dakota  <- read.csv("./collateral_consequences/docs/northdakota.csv") %>%
+    mutate(state = "North Dakota")
+ohio  <- read.csv("./collateral_consequences/docs/ohio.csv") %>%
+    mutate(state = "Ohio")
+oklahoma  <- read.csv("./collateral_consequences/docs/oklahoma.csv") %>%
+    mutate(state = "Oklahoma")
+oregon  <- read.csv("./collateral_consequences/docs/oregon.csv") %>%
+    mutate(state = "Oregon")
+pennsylvania  <- read.csv("./collateral_consequences/docs/pennsylvania.csv") %>%
+    mutate(state = "Pennsylvania")
+rhode_island  <- read.csv("./collateral_consequences/docs/rhodeisland.csv") %>%
+    mutate(state = "Rhode Island")
+south_carolina  <- read.csv("./collateral_consequences/docs/southcarolina.csv") %>%
+    mutate(state = "South Carolina")
+south_dakota  <- read.csv("./collateral_consequences/docs/southdakota.csv") %>%
+    mutate(state = "South Dakota")
+tennessee  <- read.csv("./collateral_consequences/docs/tennessee.csv") %>%
+    mutate(state = "Tennessee")
+texas  <- read.csv("./collateral_consequences/docs/texas.csv") %>%
+    mutate(state = "Texas")
+utah  <- read.csv("./collateral_consequences/docs/utah.csv") %>%
+    mutate(state = "Utah")
+vermont  <- read.csv("./collateral_consequences/docs/vermont.csv") %>%
+    mutate(state = "Vermont")
+virginia  <- read.csv("./collateral_consequences/docs/virginia.csv") %>%
+    mutate(state = "Virginia")
+washington  <- read.csv("./collateral_consequences/docs/washington.csv") %>%
+    mutate(state = "Washington")
+west_virginia  <- read.csv("./collateral_consequences/docs/westvirginia.csv") %>%
+    mutate(state = "West Virginia")
+wisconsin  <- read.csv("./collateral_consequences/docs/wisconsin.csv") %>%
+    mutate(state = "Wisconsin")
+wyoming  <- read.csv("./collateral_consequences/docs/wyoming.csv") %>%
+    mutate(state = "Wyoming")
 
 
-# Read csv files
-alabama <- read.csv("alabama.csv")
-alaska <- read.csv("alaska.csv")
-arizona <- read.csv("arizona.csv")
-arkansas <- read.csv("arkansas.csv")
-california <- read.csv("california.csv")
-colorado <- read.csv("colorado.csv")
-connecticut <- read.csv("connecticut.csv")
-dc <- read.csv("dc.csv")
-delaware <- read.csv("delaware.csv")
-federal <- read.csv("federal.csv")
-florida <- read.csv("florida.csv")
-georgia <- read.csv("georgia.csv")
-hawaii <- read.csv("hawaii.csv")
-idaho <- read.csv("idaho.csv")
-illinois <- read.csv("illinois.csv")
-indiana <- read.csv("indiana.csv")
-iowa <- read.csv("iowa.csv")
-kansas <- read.csv("kansas.csv")
-kentucky <- read.csv("kentucky.csv")
-louisiana <- read.csv("louisiana.csv")
-maine <- read.csv("maine.csv")
-maryland <- read.csv("maryland.csv")
-massachusetts <- read.csv("massachusetts.csv")
-michigan <- read.csv("michigan.csv")
-minnesota <- read.csv("minnesota.csv")
-mississippi <- read.csv("mississippi.csv")
-missouri <- read.csv("missouri.csv")
-montana <- read.csv("montana.csv")
-nebraska <- read.csv("nebraska.csv")
-nevada <- read.csv("nevada.csv")
-newhampshire <- read.csv("newhampshire.csv")
-newjersey <- read.csv("newjersey.csv")
-newmexico <- read.csv("newmexico.csv")
-newyork <- read.csv("newyork.csv")
-northcarolina <- read.csv("northcarolina.csv")
-northdakota <- read.csv("northdakota.csv")
-ohio <- read.csv("ohio.csv")
-oklahoma <- read.csv("oklahoma.csv")
-oregon <- read.csv("oregon.csv")
-pennsylvania <- read.csv("pennsylvania.csv")
-rhodeisland <- read.csv("rhodeisland.csv")
-southcarolina <- read.csv("southcarolina.csv")
-southdakota <- read.csv("southdakota.csv")
-tennessee <- read.csv("tennessee.csv")
-texas <- read.csv("texas.csv")
-utah <- read.csv("utah.csv")
-vermont <- read.csv("vermont.csv")
-virginia <- read.csv("virginia.csv")
-washington <- read.csv("washington.csv")
-westvirginia <- read.csv("westvirginia.csv")
-wisconsin <- read.csv("wisconsin.csv")
-wyoming <- read.csv("wyoming.csv")
-
-# Add state name column
-alabama <- alabama %>% mutate(state = "Alabama")
-alaska <- alaska %>% mutate(state = "Alaska")
-arizona <- arizona %>% mutate(state = "Arizona")
-arkansas <- arkansas %>% mutate(state = "Arkansas")
-california <- california %>% mutate(state = "California")
-colorado <- colorado %>% mutate(state = "Colorado")
-connecticut <- connecticut %>% mutate(state = "Connecticut")
-dc <- dc %>% mutate(state = "DC")
-delaware <- delaware %>% mutate(state = "Delaware")
-federal <- federal %>% mutate(state = "Federal")
-florida <- florida %>% mutate(state = "Florida")
-georgia <- georgia %>% mutate(state = "Georgia")
-hawaii <- hawaii %>% mutate(state = "Hawaii")
-idaho <- idaho %>% mutate(state = "Idaho")
-illinois <- illinois %>% mutate(state = "Illinois")
-indiana <- indiana %>% mutate(state = "Indiana")
-iowa <- iowa %>% mutate(state = "Iowa")
-kansas <- kansas %>% mutate(state = "Kansas")
-kentucky <- kentucky %>% mutate(state = "Kentucky")
-louisiana <- louisiana %>% mutate(state = "Louisiana")
-maine <- maine %>% mutate(state = "Maine")
-maryland <- maryland %>% mutate(state = "Maryland")
-massachusetts <- massachusetts %>% mutate(state = "Massachusetts")
-michigan <- michigan %>% mutate(state = "Michigan")
-minnesota <- minnesota %>% mutate(state = "Minnesota")
-mississippi <- mississippi %>% mutate(state = "Mississippi")
-missouri <- missouri %>% mutate(state = "Missouri")
-montana <- montana %>% mutate(state = "Montana")
-nebraska <- nebraska %>% mutate(state = "Nebraska")
-nevada <- nevada %>% mutate(state = "Nevada")
-newhampshire <- newhampshire %>% mutate(state = "NewHampshire")
-newjersey <- newjersey %>% mutate(state = "NewJersey")
-newmexico <- newmexico %>% mutate(state = "NewMexico")
-newyork <- newyork %>% mutate(state = "NewYork")
-northcarolina <- northcarolina %>% mutate(state = "NorthCarolina")
-northdakota <- northdakota %>% mutate(state = "NorthDakota")
-ohio <- ohio %>% mutate(state = "Ohio")
-oklahoma <- oklahoma %>% mutate(state = "Oklahoma")
-oregon <- oregon %>% mutate(state = "Oregon")
-pennsylvania <- pennsylvania %>% mutate(state = "Pennsylvania")
-rhodeisland <- rhodeisland %>% mutate(state = "RhodeIsland")
-southcarolina <- southcarolina %>% mutate(state = "SouthCarolina")
-southdakota <- southdakota %>% mutate(state = "SouthDakota")
-tennessee <- tennessee %>% mutate(state = "Tennessee")
-texas <- texas %>% mutate(state = "Texas")
-utah <- utah %>% mutate(state = "Utah")
-vermont <- vermont %>% mutate(state = "Vermont")
-virginia <- virginia %>% mutate(state = "Virginia")
-washington <- washington %>% mutate(state = "Washington")
-westvirginia <- westvirginia %>% mutate(state = "WestVirginia")
-wisconsin <- wisconsin %>% mutate(state = "Wisconsin")
-wyoming <- wyoming %>% mutate(state = "Wyoming")
-
-# Combine dataframes
+# Combine all the states into one dataframe
 all_states <- rbind(alabama, alaska, arizona, arkansas, california, 
     colorado, connecticut, dc, delaware, federal, florida, georgia, 
     hawaii, idaho, illinois, indiana, iowa, kansas, kentucky, louisiana, 
     maine, maryland, massachusetts, michigan, minnesota, mississippi, 
-    missouri, montana, nebraska, nevada, newhampshire, newjersey, 
-    newmexico, newyork, northcarolina, northdakota, ohio, oklahoma, 
-    oregon, pennsylvania, rhodeisland, southcarolina, southdakota, 
-    tennessee, texas, utah, vermont, virginia, washington, westvirginia, 
+    missouri, montana, nebraska, nevada, new_hampshire, new_jersey, 
+    new_mexico, new_york, north_carolina, north_dakota, ohio, oklahoma, 
+    oregon, pennsylvania, rhode_island, south_carolina, south_dakota, 
+    tennessee, texas, utah, vermont, virginia, washington, west_virginia, 
     wisconsin, wyoming)
 
-# Sum of entries analyzed, total collateral consequences
-no_con <- all_states$Number.of.Consequences
-num_con <- as.integer(no_con)
-clean_total_consequences <- sum(num_con, na.rm = TRUE)
+# How many collateral consequences of conviction are there?
+num <- na.omit(as.integer(all_states$Number.of.Consequences))
+total_consequences <- sum(num)
+#41,965
 
-# Count number of collateral consequences per jurisdiction/state
-n_consequences <- all_states %>% mutate(numeric_count = num_con) %>%
-  group_by(state) %>% summarise(count = sum(numeric_count, na.rm = TRUE))
+# How many collateral consequences are there in each state?
+n_each_state <- all_states %>% group_by(state) %>% 
+    summarize(n = sum(na.omit(as.integer(Number.of.Consequences))))
 
-# Create bar chart of total number of collateral consequences in each jurisdiction
-n_consequences %>% ggplot(aes(x = reorder(state, count), y = count)) +
+# Visualize the number of collateral consequences by state
+n_by_state <- n_each_state %>% ggplot(aes(x = n, y = reorder(state, n), fill = n)) +
+    geom_col() +
+    geom_label(aes(label = n), fill = "white", color = "black") +
+    ggtitle("Number of Collateral Consequences by State") +
+    labs(y = "State", x = "Number of Collateral Consequences", caption = "Visualization by Victoria Mitchell. Data Source: National Inventory of Collateral Consequences of Conviction") +
+    theme(legend.position = "none", 
+    plot.title = element_text(size = 30, hjust = .5), 
+    plot.caption = element_text(size = 12, hjust = .4), 
+    axis.title = element_text(size = 22), 
+    axis.text = element_text(size = 16), 
+    plot.background = element_rect(fill = "lightblue", color = NA), 
+    panel.background = element_rect(fill = "lightblue", color = NA))
+
+
+
+# Save the plot
+ggsave("./collateral_consequences/plots/collateral_consequences_by_state.png", plot = n_by_state, width = 16, height = 12)
+
+# How many collateral consequences are there in each category of consequence?
+n_each_category <- all_states %>% separate_rows(Consequences, sep = "\\|") %>%
+    group_by(Consequences) %>% 
+    summarize(n = sum(na.omit(as.integer(Number.of.Consequences)))) %>% 
+    filter(n > 1, Consequences != "") %>% arrange(desc(n))
+
+# Visualize the number of collateral consequences by category
+category_consequence <- n_each_category %>%
+    ggplot(aes(x = n, y = reorder(Consequences, n), fill = n)) +
+    geom_col() +
+    geom_label(aes(label = n), fill = "white", color = "black") +
+    labs(y = "Type of Effect", x = "Number of Collateral Consequences", caption = "Visualization by Victoria Mitchell. Data Source: National Inventory of Collateral Consequences of Conviction") +
+    ggtitle("Number of Collateral Consequences by Type of Effect") +
+    theme(legend.position = "none", 
+    plot.title = element_text(size = 28, hjust = -2),
+    plot.caption = element_text(size = 12, hjust = -1),
+    axis.title = element_text(size = 22),
+    axis.text = element_text(size = 16),
+    plot.background = element_rect(fill = "lightblue", color = NA),
+    panel.background = element_rect(fill = "lightblue", color = NA))
+
+
+
+
+# Save the plot
+ggsave("./collateral_consequences/plots/collateral_consequences_by_category.png", plot = category_consequence, width = 18, height = 12)
+
+# How long do collateral consequences last?
+duration <- all_states %>% separate_rows(Duration, sep = "\\|") %>%
+    group_by(Duration) %>% 
+    summarize(n = sum(na.omit(as.integer(Number.of.Consequences)))) %>% 
+    filter(n > 1, Duration != "") %>% 
+    arrange(desc(n))
+
+# Visualize the duration of collateral consequences
+duration_pie <- duration %>% 
+    ggplot(aes(x = "", y = n, fill = Duration)) +
     geom_bar(stat = "identity") +
-    coord_flip() +
-    labs(title = "Total Number of Collateral Consequences Per Jurisdiction",
-         x = "Jurisdiction",
-         y = "Number of Collateral Consequences") +
-         theme_minimal()
-
-# Create pie chart of the breakdown of time duration of collateral consequences
-split_duration <- all_states %>% mutate(numeric_count = num_con) %>% separate_rows(Duration, sep = "\\|")
-comb_duration <- split_duration %>% group_by(Duration) %>%
-  summarise(count = sum(numeric_count, na.rm=TRUE))
-combined_duration <- data.frame(comb_duration)
-combined_duration <- combined_duration %>% mutate(percent = round(count/clean_total_consequences * 100))
-combined_duration <- combined_duration %>% filter(percent != 0)
-colors <- c("blue", "red", "orange", "yellow", "green")
-pie(combined_duration$count, main = "Breakdown of Duration of Collateral Consequences of Conviction", 
-    col = colors, label = paste(combined_duration$Duration, combined_duration$percent, "%"))
+    coord_polar("y") +
+    geom_label(position = position_stack(vjust = 0.5), aes(label = paste0(round(n/total_consequences*100), "%")), color = "white", size = 5) +
+    labs(y = "Number of Collateral Consequences", x = "", fill = "Duration", caption = "Visualization by Victoria Mitchell. Data Source: National Inventory of Collateral Consequences of Conviction") +
+    ggtitle("Duration of Collateral Consequences") +
+    theme_void() +
+    scale_fill_brewer(palette = "Set1") +
+    theme(legend.position = "left", legend.text = element_text(size = 20), 
+    legend.title = element_text(size = 20), 
+    plot.title = element_text(size = 20, hjust = -2), 
+    plot.caption = element_text(size = 12, hjust = 1.5), 
+    plot.background = element_rect(fill = "lightblue", color = NA), 
+    panel.background = element_rect(fill = "lightblue", color = NA)) +
+    guides(fill = guide_legend(override.aes = list(label = "")))
 
 
-# Create bar chart of the breakdown of collateral consequences by category of effect
-split_consequences <- all_states %>% mutate(numeric_count = num_con) %>% separate_rows(Consequences, sep = "\\|")
-consequences_categories <- c("Business licensure & participation", "Civil fines, 
-                             liability, civil forfeiture & property rights",
-                             "Education", "Employment & volunteering", 
-                             "Family & domestic rights", "General relief provision",
-                             "Government benefits", "Government contracting & program participation",
-                             "Government loans & grants", "Housing & residency", 
-                             "Immigration, naturalization & travel", "Judicial rights",
-                             "Motor vehicle licensure (non-commercial)", 
-                             "Occupational & professional licensure & certification",
-                             "Political & civic participation",
-                             "Recreational license & participation, including firearms",
-                             "Registration, publication & notification")
-filtered_consequences <- split_consequences %>% filter(Consequences %in% consequences_categories)
-grouped_consequences <- filtered_consequences %>% group_by(Consequences) %>%
-  summarise(count = sum(numeric_count, na.rm=TRUE))                         
-grouped_consequences %>% ggplot(aes(x = reorder(Consequences, count), y = count)) +
-  geom_bar(stat = "identity") +
-  coord_flip() +
-  labs(title = "Number of Collateral Consequences By Category of Effect", x = "Category of Effect", y = "Number of Collateral Consequences")
+# Save the plot
+ggsave("./collateral_consequences/plots/collateral_consequences_duration.png", plot = duration_pie, width = 12, height = 9)
 
-# Percent of all collateral consequences by category of effect
-grouped_consequences_percent <- data.frame(grouped_consequences) %>% mutate(percent = count/clean_total_consequences * 100)
-grouped_consequences_percent %>% arrange(desc(percent))
+# How many collateral consequences are applied by offense type?
+offense <- all_states %>% separate_rows(Offense.Type, sep = "\\|") %>%
+    group_by(Offense.Type) %>% 
+    summarize(n = sum(na.omit(as.integer(Number.of.Consequences)))) %>% 
+    filter(n > 1, Offense.Type != "") %>% 
+    arrange(desc(n))
 
-# Broken down by offense type
-split_offense <- all_states %>% mutate(numeric_count = num_con) %>% separate_rows(Offense.Type, sep = "\\|") %>%
-  group_by(Offense.Type) %>% summarize(count = sum(numeric_count, na.rm=TRUE))
-filtered_split_offense <- data.frame(split_offense) %>% filter(Offense.Type != "" & count > 1)
-offense_with_percent <- data.frame(filtered_split_offense) %>% mutate(percent = round(count/clean_total_consequences *100))
-arranged_offense <- offense_with_percent %>% arrange(desc(percent))
-arranged_offense %>% ggplot(aes(x = reorder(Offense.Type, percent), y = percent)) +
-  geom_bar(stat = "identity") +
-  coord_flip() +
-  labs(title = "Percent of All Collateral Consequences That Apply to Those Convicted of Each Offense Type", x = "Offense Type", y = "Percent of All Collateral Consequences That Apply")
+# Visualize the number of collateral consequences by offense type
+offenses <- offense %>% 
+    ggplot(aes(x = n, y = reorder(Offense.Type, n), fill = n)) +
+    geom_col() +
+    geom_label(aes(label = n), fill = "white", color = "black") +
+    labs(y = "Offense Type", x = "Number of Collateral Consequences", caption = "Visualization by Victoria Mitchell. Data Source: National Inventory of Collateral Consequences of Conviction") +
+    ggtitle("Number of Collateral Consequences by Offense Type") +
+    theme(legend.position = "none", 
+    plot.title = element_text(size = 28, hjust = 4),
+    plot.caption = element_text(size = 14, hjust = 3.2),
+    axis.title = element_text(size = 22),
+    axis.text = element_text(size = 16),
+    plot.background = element_rect(fill = "lightblue", color = NA),
+    panel.background = element_rect(fill = "lightblue", color = NA))
 
 
+# Save the plot
+ggsave("./collateral_consequences/plots/collateral_consequences_by_offense.png", plot = offenses, width = 18, height = 12)
